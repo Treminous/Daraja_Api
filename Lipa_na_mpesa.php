@@ -223,7 +223,7 @@ if ((in_array($_SERVER['REMOTE_ADDR'], $whitelist))) {
 
   // send email
 
-  send_email($email_address='',$message='');
+  send_email($email_address='ongidigeofrey@gmail.com',$message='');
   
    }
   $_SESSION['merchant_request_id'] =$merchantRequestID; 
