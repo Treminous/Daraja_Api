@@ -2,7 +2,7 @@
 
 function get_authorization_token(){
 
-    //replace with config or environment vaiables;
+    //replace with config or environment variables;
     $base_url='';
     $consumer_key='';
     $consumer_secret='';
@@ -55,11 +55,9 @@ function mpesa_stk_push($BusinessShortCode='',$Password='',$Timestamp=0,$Transac
                         "PartyA"=> $PartyA,
                         "PartyB"=> $PartyB,
                         "PhoneNumber"=> $PhoneNumber,
-                        "CallBackURL"=> "https://www.paxcoins.com/callback.php",
+                        "CallBackURL"=> "https://www.paxcoins.com/mpesa/process_payments",
                         "AccountReference"=> $AccountReference,
-                        "TransactionDesc"=> $TransactionDesc 
-                    
-                   
+                        "TransactionDesc"=> $TransactionDesc
                 ));
 
                 // if get token
@@ -108,9 +106,7 @@ function mpesa_stk_push($BusinessShortCode='',$Password='',$Timestamp=0,$Transac
                     }
                 }else{
                     return FALSE;
-                }
-            
-        
+                }      
 }
 
 
