@@ -228,13 +228,8 @@ if ((in_array($_SERVER['REMOTE_ADDR'], $whitelist))) {
   // send email
   
    }
-  $_SESSION['merchant_request_id'] =$merchantRequestID;
-   //woompesa_scan_transactions($merchantRequestID);
-       
-    /*    if($order){
-            $order->update_status( 'completed' );
-        }*/
-}        
+  $_SESSION['merchant_request_id'] =$merchantRequestID; 
+}       
    
    
 else
