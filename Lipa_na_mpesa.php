@@ -2,11 +2,14 @@
 
 function get_authorization_token(){
 
-    $base_url=env("BASE_URL");
-    $consumer_key=env("CONSUMER_KEY");
-    $consumer_secret=env("CONSUMER_SECRET");
-    
+    //replace with config or environment vaiables;
+    $base_url='';
+    $consumer_key='';
+    $consumer_secret='';
     $encoded_key=base64_encode($consumer_key.":".$consumer_secret);
+
+
+    // send request
     $curl = curl_init();
     curl_setopt_array($curl, array(
         CURLOPT_URL => $base_url."/mpesa/stkpush/v1/processrequest",
@@ -41,6 +44,8 @@ function get_authorization_token(){
 
 function mpesa_stk_push($BusinessShortCode='',$Password='',$Timestamp=0,$TransactionType='',$Amount='',$PartyA='',$PartyB='',$PhoneNumber='',$CallBackURL='',$AccountReference='',$TransactionDesc=''){
         
+
+    //  initialize post fields
                 $post_fieds = json_encode(array(
                         "BusinessShortCode"=>$BusinessShortCode,
                         "Password"=>$Password,
@@ -56,8 +61,10 @@ function mpesa_stk_push($BusinessShortCode='',$Password='',$Timestamp=0,$Transac
                     
                    
                 ));
-                if($token = $this->get_authorization_token()){
-                    $url = env("BASE_URL")."/mpesa/stkpush/v1/processrequest";
+
+                // if get token
+                if($token = get_authorization_token()){
+                    $url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest";
                     $curl = curl_init();
                     curl_setopt_array($curl, array(
                     CURLOPT_URL => $url,
